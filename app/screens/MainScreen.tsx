@@ -4,382 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import { ScreenTitle } from '../components/common/ScreenTitle';
 import Visible from '../components/common/Visible';
 import { MAX_MEASURED_FEATURES_CONTROLS_PER_COLUMN, MeasuredFeature } from '../components/MeasurementsGrid/MeasuredFeature';
-import MeasuredFeatureStatus from '../entities/enums/MeasuredFeatureStatus';
 import { IMeasuredFeature } from '../entities/interfaces/IMeasuredFeature';
 import IPart from '../entities/interfaces/IPart';
 import MockedPartsRepository from '../services/MockedPartsRepository';
 
-
-const mockedFeatures: IMeasuredFeature[] = [
-  {
-    name: "Feature #1",
-    status: MeasuredFeatureStatus.OK,
-    controls: [
-      {
-        name: "X",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "X",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "X",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "X",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "X",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "X",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-    ]
-  },
-  {
-    name: "Feature #2",
-    status: MeasuredFeatureStatus.Alarm,
-    controls: [
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-    ]
-  },
-  {
-    name: "Feature #3",
-    status: MeasuredFeatureStatus.Warning,
-    controls: [
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-
-    ]
-  },
-  {
-    name: "Feature #4",
-    status: MeasuredFeatureStatus.OK,
-    controls: [
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-
-    ]
-  },
-  {
-    name: "Feature #5",
-    status: MeasuredFeatureStatus.Alarm,
-    controls: [
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Y",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Z",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-    ]
-  },
-]
 
 function doesFeatureFitWithNext(controlsLength: number, nextFeature: IMeasuredFeature) {
   return controlsLength <= MAX_MEASURED_FEATURES_CONTROLS_PER_COLUMN / 2 && nextFeature
@@ -415,17 +43,17 @@ export function MainScreen() {
 
   useEffect(() => {
     if (state.partStatus === PartStatus.Uninitialized) {
-        try {
-          const partsList = fakeRepository.list();
-          setState({ ...state, partStatus: PartStatus.Loading })
-          return fakeRepository.subscribe(partsList[0].partId, part => {
-            setPart(part);
-            setState({ ...state, partStatus: !!part ? PartStatus.Loaded : PartStatus.Error });
-          });
-        } catch (e) {
-          console.warn("MainScreen: error subscribing to repository", e);
-          setState({ ...state, partStatus: PartStatus.Error });
-        }
+      try {
+        const partsList = fakeRepository.list();
+        setState({ ...state, partStatus: PartStatus.Loading })
+        return fakeRepository.subscribe(partsList[0].partId, part => {
+          setPart(part);
+          setState({ ...state, partStatus: !!part ? PartStatus.Loaded : PartStatus.Error });
+        });
+      } catch (e) {
+        console.warn("MainScreen: error subscribing to repository", e);
+        setState({ ...state, partStatus: PartStatus.Error });
+      }
     }
   }, [part]);
 
@@ -446,7 +74,7 @@ export function MainScreen() {
               const { controls, name, status } = feature;
               return controls.length > 0 ?
                 (
-                  doesFeatureFitWithNext(controls.length, mockedFeatures[index + 1]) ?
+                  doesFeatureFitWithNext(controls.length, part.features[index + 1]) ?
                     <View style={{ flex: 1, flexDirection: "column" }}>
                       <MeasuredFeature
                         name={name}
@@ -454,9 +82,9 @@ export function MainScreen() {
                         controls={controls}
                       />
                       <MeasuredFeature
-                        name={mockedFeatures[index + 1].name}
-                        status={mockedFeatures[index + 1].status}
-                        controls={mockedFeatures[index + 1].controls}
+                        name={part.features[index + 1].name}
+                        status={part.features[index + 1].status}
+                        controls={part.features[index + 1].controls}
                       />
                     </View>
                     : <MeasuredFeature

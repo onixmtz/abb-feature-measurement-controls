@@ -370,13 +370,6 @@ const mockedFeatures: IMeasuredFeature[] = [
         status: MeasuredFeatureStatus.OK,
       },
       {
-        id: "fe5_control3",
-        name: "Diameter",
-        dev: 1,
-        devOutTot: 2,
-        status: MeasuredFeatureStatus.OK,
-      },
-      {
         id: "fe5_control4",
         name: "Diameter",
         dev: 1,
@@ -386,6 +379,13 @@ const mockedFeatures: IMeasuredFeature[] = [
       {
         id: "fe5_control5",
         name: "Y",
+        dev: 1,
+        devOutTot: 2,
+        status: MeasuredFeatureStatus.OK,
+      },
+      {
+        id: "fe5_control6",
+        name: "Diameter",
         dev: 1,
         devOutTot: 2,
         status: MeasuredFeatureStatus.OK,
