@@ -1,0 +1,1 @@
+type IRowFlexWeight = 1 | 3 | 5;
