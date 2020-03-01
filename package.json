@@ -1,6 +1,6 @@
 {
-  "name": "abba-feature-measurement-controls",
-  "version": "0.0.1",
+  "name": "abb-feature-measurement-controls",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "react-native start",
