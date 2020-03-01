@@ -1,15 +1,16 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import Colors from '../../utils/Colors';
 import Styles from '../../utils/Styles';
 
 export interface Props {
   title: string;
+  style: ViewStyle;
 }
 
 export function ScreenTitle(props: Props) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {...props.style}]}>
       <Text style={styles.name}>{props.title}</Text>
     </View>
   );
@@ -17,8 +18,9 @@ export function ScreenTitle(props: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    backgroundColor: Colors.White,
+    alignItems: "flex-start",
+    paddingLeft: 10,
+    textAlignVertical: "center"
   },
   name: {
     fontWeight: "bold",

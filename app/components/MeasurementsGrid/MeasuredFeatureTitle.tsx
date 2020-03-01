@@ -1,29 +1,44 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import MeasuredFeatureStatus from '../../entities/enums/MeasuredFeatureStatus';
+import MeasurementStatus from '../../../lib/entities/enums/MeasuredFeatureStatus';
 import Colors from '../../utils/Colors';
 import Styles from '../../utils/Styles';
 
+
 export type Props = {
-  name: string;
-  status: MeasuredFeatureStatus;
+  children: string;
+  status: MeasurementStatus;
 };
 
-const getConditionalStyle = (status: MeasuredFeatureStatus) => {
+const getConditionalStyle = (status: MeasurementStatus, alarmState: boolean) => {
   switch (status) {
-    case MeasuredFeatureStatus.OK:
+    case MeasurementStatus.OK:
       return { backgroundColor: Colors.Green };
-    case MeasuredFeatureStatus.Warning:
+    case MeasurementStatus.Warning:
       return { backgroundColor: Colors.Yellow }
-    case MeasuredFeatureStatus.Alarm:
-      return { backgroundColor: Colors.Red }
+    case MeasurementStatus.Alarm:
+      return { backgroundColor: alarmState ? Colors.Red2 : Colors.Red };
   }
 }
 
 export function MeasuredFeatureTitle(props: Props): JSX.Element {
+  const { status, children } = props;
+  const [alarmState, setAlarmState] = React.useState(false);
+  const toggleAlarmState = () => {
+    setAlarmState(!alarmState);
+  };
+
+  useEffect(() => {
+    if (status === MeasurementStatus.Alarm) {
+      const timeout = setTimeout(() => toggleAlarmState(), 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [alarmState]);
+
   return (
-    <View style={[styles.container, getConditionalStyle(props.status) || {}]}>
-      <Text style={styles.name}>{props.name}</Text>
+    <View style={[styles.container, getConditionalStyle(status, alarmState) || {}]}>
+      <Text style={styles.name}>{children}</Text>
     </View>
   );
 }

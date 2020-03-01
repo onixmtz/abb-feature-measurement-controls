@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, View, FlatList, ListRenderItem, ListRenderItemInfo } from 'react-native';
-import { IControl } from '../../entities/interfaces/IControl';
+import { StyleSheet, View } from 'react-native';
+import { IControl } from '../../../lib/entities/interfaces/IControl';
 import Colors from '../../utils/Colors';
-import { MeasuredControl, MeasuredControlProps } from './MeasuredControl';
+import { MeasuredControl } from './MeasuredControl';
 import { MeasurementsControlsHeading } from './MeasurementsControlsHeading';
 
 
@@ -10,9 +10,7 @@ type Props = {
   controls: IControl[];
 };
 
-
 export function MeasurementsGrid(props: Props) {
-  const renderItem = (itemInfo: ListRenderItemInfo<MeasuredControlProps>) => <MeasuredControl {...itemInfo.item} />;
   const keyExtractor = (item: IControl) => item.id;
   return (
     <View style={styles.container}>
@@ -23,7 +21,7 @@ export function MeasurementsGrid(props: Props) {
         { label: "", flexWeight: RowFlexWeight.Narrow },
       ]} />
       {
-        <FlatList renderItem={renderItem} keyExtractor={keyExtractor} data={props.controls} />
+        props.controls.map(item => <MeasuredControl {...item} key={keyExtractor(item)} />)
       }
     </View>
   );
@@ -37,7 +35,6 @@ export enum RowFlexWeight {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: Colors.LightGray2,
   },
   name: {

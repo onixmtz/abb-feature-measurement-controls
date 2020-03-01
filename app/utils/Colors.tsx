@@ -1,6 +1,7 @@
 export default {
   Red: "#e55",
-  Yellow: "#ed1",
+  Red2: "#a00",
+  Yellow: "#c91",
   Green: "#4a6",
   White: "#fff",
   DarkGray: "#505050",

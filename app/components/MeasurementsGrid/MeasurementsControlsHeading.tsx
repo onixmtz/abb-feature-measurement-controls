@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { MeasurementsControlsHeadingElement } from './MeasurementsControlsHeadingElement';
 import { RowFlexWeight } from './MeasurementsGrid';
 
+
 export interface Props {
   columnTitles: { label: string, flexWeight?: RowFlexWeight }[];
 };
